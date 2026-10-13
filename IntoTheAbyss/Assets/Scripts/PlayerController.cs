@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>();
+
+        Debug.Log($"{name} | {context.control.name} | {_moveInput}");
     }
 
     private void FixedUpdate()
