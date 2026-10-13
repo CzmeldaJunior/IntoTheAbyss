@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlayerInputManager : MonoBehaviour
+public class InputManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject _playerPrefab;
@@ -25,7 +25,7 @@ public class PlayerInputManager : MonoBehaviour
 
         if(!_wasdConn && connectedPlayers < 2 && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            var player = PlayerInput.Instantiate(_playerPrefab, controlScheme: "WASD", pairWithDevice: Keyboard.current);
+            var player = UnityEngine.InputSystem.PlayerInput.Instantiate(_playerPrefab, controlScheme: "WASD", pairWithDevice: Keyboard.current);
 
             if(_spawnPoints.Length > 0)
             {
@@ -39,7 +39,7 @@ public class PlayerInputManager : MonoBehaviour
 
         if (!_arrowsConn && connectedPlayers < 2 && Keyboard.current.rightShiftKey.wasPressedThisFrame)
         {
-            var player = PlayerInput.Instantiate(_playerPrefab, controlScheme: "Arrows", pairWithDevice: Keyboard.current);
+            var player = UnityEngine.InputSystem.PlayerInput.Instantiate(_playerPrefab, controlScheme: "Arrows", pairWithDevice: Keyboard.current);
 
             if (_spawnPoints.Length > 1)
             {
@@ -56,7 +56,7 @@ public class PlayerInputManager : MonoBehaviour
         {
             if (!_joinedGamepads.Contains(gamepad) && connectedPlayers < 2 && gamepad.buttonSouth.wasPressedThisFrame)
             {
-                PlayerInput.Instantiate(_playerPrefab, controlScheme: "Gamepad",pairWithDevice: gamepad);
+                UnityEngine.InputSystem.PlayerInput.Instantiate(_playerPrefab, controlScheme: "Gamepad",pairWithDevice: gamepad);
 
                 _joinedGamepads.Add(gamepad);
                 connectedPlayers++;
