@@ -9,7 +9,7 @@ public class MultiplayerCameraGroupManager : MonoBehaviour
     [SerializeField]
     private float defaultWeight = 1.0f;
     [SerializeField]
-    private float defaultRadius = 2.0f;
+    private float defaultRadius = 10.0f;
 
     private void Awake()
     {
@@ -28,11 +28,5 @@ public class MultiplayerCameraGroupManager : MonoBehaviour
     public void UnregisterTarget(Transform target)
     {
         _targetGroup.RemoveMember(target);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

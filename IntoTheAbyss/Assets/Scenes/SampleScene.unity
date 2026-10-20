@@ -506,7 +506,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1042,7 +1042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 604659750656396575, guid: 150eb6b90f4f5f04b9df0a91c8b3b9d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9999999
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 604659750656396575, guid: 150eb6b90f4f5f04b9df0a91c8b3b9d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1080,6 +1080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8008962755863139007, guid: 150eb6b90f4f5f04b9df0a91c8b3b9d8, type: 3}
+      propertyPath: _mainCamera
+      value: 
+      objectReference: {fileID: 330585545}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1555,7 +1559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MultiplayerCameraGroupManager
   _targetGroup: {fileID: 1192321536}
   defaultWeight: 1
-  defaultRadius: 2
+  defaultRadius: 10
 --- !u!1 &1286125592
 GameObject:
   m_ObjectHideFlags: 0
