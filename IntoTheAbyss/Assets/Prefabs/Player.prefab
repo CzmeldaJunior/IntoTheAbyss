@@ -392,7 +392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponInput
   _weaponController: {fileID: 139905845831255886}
-  inputActionAsset: {fileID: -944628639613478452, guid: 23eacfe7c34073445ba539f854f47084, type: 3}
 --- !u!114 &139905845831255886
 MonoBehaviour:
   m_ObjectHideFlags: 0
