@@ -10,6 +10,7 @@ public class WeaponData : ScriptableObject
     public float fireRate;
     public int magazineSize;
     public float range;
+    [Range(0f, 1f)]
     public float spread;
 
 

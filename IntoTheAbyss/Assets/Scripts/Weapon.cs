@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -15,6 +16,11 @@ public class Weapon : MonoBehaviour
     private float _spread;
 
 
+    private int _currentAmmo;
+    private bool _isReloading;
+    private float _fireTime;
+
+
 
     private void Awake()
     {
@@ -25,9 +31,45 @@ public class Weapon : MonoBehaviour
         _magazineSize = _weaponData.magazineSize;
         _range = _weaponData.range;
         _spread = _weaponData.spread;
+
+
+        _currentAmmo = _magazineSize;
     }
 
     public void Shoot()
+    {
+        if (_currentAmmo <= 0 || _isReloading || Time.time < _fireTime) return;
+
+        _fireTime = Time.time + _fireRate;
+
+        SpreadCalculator();
+
+        _currentAmmo--;
+    }
+
+    public void Reload()
+    {
+        if (_isReloading || _currentAmmo == _magazineSize) return;
+
+        StartCoroutine(ReloadRoutine());
+    }
+
+    private IEnumerator ReloadRoutine()
+    {
+        //Bude volat ammoManager
+
+        _isReloading = true;
+
+        yield return new WaitForSeconds(_reloadTime);
+        
+        Debug.Log("Reloaded");
+
+        _currentAmmo = _magazineSize;
+
+        _isReloading = false;
+    }
+
+    private void SpreadCalculator()
     {
         float spreadX = Random.Range(-_spread, _spread);
         float spreadY = Random.Range(-_spread, _spread);
@@ -41,7 +83,7 @@ public class Weapon : MonoBehaviour
 
         Vector3 endPoint;
 
-        if (Physics.Raycast(ray, out hit, 100f))
+        if (Physics.Raycast(ray, out hit, _range))
         {
             Debug.Log("Hit" + hit.collider.name);
 
@@ -52,14 +94,9 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green, 5f);
+            Debug.DrawRay(ray.origin, ray.direction * _range, Color.green, 5f);
 
             endPoint = ray.origin + ray.direction * 100f;
         }
-    }
-
-    public void Reload()
-    {
-
     }
 }

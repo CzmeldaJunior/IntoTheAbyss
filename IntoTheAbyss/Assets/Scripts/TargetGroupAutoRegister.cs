@@ -3,7 +3,6 @@ using UnityEngine;
 public class TargetGroupAutoRegister : MonoBehaviour
 {
     private MultiplayerCameraGroupManager _groupManager;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         _groupManager = FindAnyObjectByType<MultiplayerCameraGroupManager>();
@@ -20,11 +19,5 @@ public class TargetGroupAutoRegister : MonoBehaviour
         {
             _groupManager.UnregisterTarget(transform);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

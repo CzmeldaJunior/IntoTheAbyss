@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TestGun
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: Test_Gun
-  damage: 5
+  damage: 8
   reloadTime: 2
-  fireRate: 1
-  magazineSize: 15
+  fireRate: 0.3
+  magazineSize: 12
   range: 30
-  spread: 0
+  spread: 0.1
