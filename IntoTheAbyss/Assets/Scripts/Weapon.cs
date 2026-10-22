@@ -6,6 +6,11 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private WeaponData _weaponData;
     public Transform firePoint;
+    public GameObject bulletHole;
+    public TrailRenderer bulletTrail;
+    public ParticleSystem ImpactParticle;
+    [SerializeField]
+    private float bulletSpeed = 150f;
 
     private string _weaponName;
     private float _damage;
@@ -42,7 +47,7 @@ public class Weapon : MonoBehaviour
 
         _fireTime = Time.time + _fireRate;
 
-        SpreadCalculator();
+        ShootingLogic();
 
         _currentAmmo--;
     }
@@ -69,7 +74,7 @@ public class Weapon : MonoBehaviour
         _isReloading = false;
     }
 
-    private void SpreadCalculator()
+    private void ShootingLogic()
     {
         float spreadX = Random.Range(-_spread, _spread);
         float spreadY = Random.Range(-_spread, _spread);
@@ -98,5 +103,36 @@ public class Weapon : MonoBehaviour
 
             endPoint = ray.origin + ray.direction * 100f;
         }
+
+        TrailRenderer trail = Instantiate(bulletTrail, firePoint.position, Quaternion.identity);
+        StartCoroutine(SpawnBulletTrail(trail, endPoint, hit));
+    }
+
+    private IEnumerator SpawnBulletTrail(TrailRenderer trail, Vector3 endPoint, RaycastHit hit)
+    {
+        Vector3 startPosition = trail.transform.position;
+        float distance = Vector3.Distance(startPosition, endPoint);
+        float traveled = 0f;
+
+        while (traveled < distance)
+        {
+            float frame = bulletSpeed * Time.deltaTime;
+            traveled += frame;
+
+            trail.transform.position = Vector3.Lerp(startPosition, endPoint, traveled / distance);
+
+            yield return null;
+        }
+
+        trail.transform.position = endPoint;
+
+        if (hit.collider != null)
+        {
+            GameObject impactBulletHole = Instantiate(bulletHole, hit.point - new Vector3(0, 0, 0.01f), Quaternion.LookRotation(hit.normal));
+
+            Destroy(impactBulletHole.gameObject, 10f);
+        }
+            Destroy(trail.gameObject, 2f);
+        
     }
 }

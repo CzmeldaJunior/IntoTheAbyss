@@ -615,6 +615,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   _weaponData: {fileID: 11400000, guid: f9aaa24c5db64d74e9942cb34bba7bf5, type: 2}
   firePoint: {fileID: 4248548202993831607}
+  bulletHole: {fileID: 8840946938282213463, guid: 1d3f8d366fb95b2438ac80b2a0732c47, type: 3}
+  bulletTrail: {fileID: 6868110719294785860, guid: 33cff1ea5c9b36d4bb87ef99a60c39f9, type: 3}
+  ImpactParticle: {fileID: 6795510549477875, guid: 30c6ef8950b293c49a9d456ae3e17b55, type: 3}
+  bulletSpeed: 150
 --- !u!1 &7814616888905476337
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +781,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   _weaponData: {fileID: 11400000, guid: a4e3ab04800a32c49bdba2345626ec02, type: 2}
   firePoint: {fileID: 7742126693201896218}
+  bulletHole: {fileID: 8840946938282213463, guid: 1d3f8d366fb95b2438ac80b2a0732c47, type: 3}
+  bulletTrail: {fileID: 6868110719294785860, guid: 33cff1ea5c9b36d4bb87ef99a60c39f9, type: 3}
+  ImpactParticle: {fileID: 6795510549477875, guid: 30c6ef8950b293c49a9d456ae3e17b55, type: 3}
+  bulletSpeed: 150
 --- !u!1 &8518023313059031301
 GameObject:
   m_ObjectHideFlags: 0
