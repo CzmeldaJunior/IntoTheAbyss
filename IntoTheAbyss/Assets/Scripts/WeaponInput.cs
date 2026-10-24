@@ -6,7 +6,7 @@ public class WeaponInput : MonoBehaviour
     [SerializeField]
     private WeaponController _weaponController;
 
-    private bool _isFiring;
+    bool _isFiring;
 
     public void OnFire(InputAction.CallbackContext context)
     {

@@ -21,9 +21,9 @@ public class Weapon : MonoBehaviour
     private float _spread;
 
 
-    private int _currentAmmo;
-    private bool _isReloading;
-    private float _fireTime;
+    int _currentAmmo;
+    bool _isReloading;
+    float _fireTime;
 
 
 
@@ -91,6 +91,11 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(ray, out hit, _range))
         {
             Debug.Log("Hit" + hit.collider.name);
+
+            if(hit.collider.TryGetComponent<IDamageable>(out var damageTarget))
+            {
+                damageTarget.TakeDamage(_damage);
+            }
 
             //debug vizulizace
             Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.red, 5f);
