@@ -465,7 +465,7 @@ Transform:
   m_GameObject: {fileID: 6957154322823394985}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.164, y: 0, z: 0.514}
+  m_LocalPosition: {x: 0.164, y: 0.16, z: 0.514}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -618,7 +618,6 @@ MonoBehaviour:
   bulletHole: {fileID: 8840946938282213463, guid: 1d3f8d366fb95b2438ac80b2a0732c47, type: 3}
   bulletTrail: {fileID: 6868110719294785860, guid: 33cff1ea5c9b36d4bb87ef99a60c39f9, type: 3}
   ImpactParticle: {fileID: 6795510549477875, guid: 30c6ef8950b293c49a9d456ae3e17b55, type: 3}
-  bulletSpeed: 150
 --- !u!1 &7814616888905476337
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +783,6 @@ MonoBehaviour:
   bulletHole: {fileID: 8840946938282213463, guid: 1d3f8d366fb95b2438ac80b2a0732c47, type: 3}
   bulletTrail: {fileID: 6868110719294785860, guid: 33cff1ea5c9b36d4bb87ef99a60c39f9, type: 3}
   ImpactParticle: {fileID: 6795510549477875, guid: 30c6ef8950b293c49a9d456ae3e17b55, type: 3}
-  bulletSpeed: 150
 --- !u!1 &8518023313059031301
 GameObject:
   m_ObjectHideFlags: 0

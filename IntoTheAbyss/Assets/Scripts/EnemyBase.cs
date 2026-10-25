@@ -6,6 +6,9 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField]
     private EnemyData _enemyData;
 
+    [SerializeField]
+    private EnemyHealthBar _enemyHealthBar;
+
     private float _hp;
     private float _movementSpeed;
     private float _attackDamage;
@@ -26,6 +29,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public void TakeDamage(float damageToTake)
     {
         _currentHp -= damageToTake;
+
+        _enemyHealthBar.SetHealth(_currentHp, _hp);
 
         if (_currentHp <= 0)
         {

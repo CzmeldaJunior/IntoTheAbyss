@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -8,9 +9,11 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletHole;
     public TrailRenderer bulletTrail;
-    public ParticleSystem ImpactParticle;
-    [SerializeField]
+    public ParticleSystem impactParticle;
+
+
     private float bulletSpeed = 150f;
+    private float _verticalSpreadCoeficent = 10f;
 
     private string _weaponName;
     private float _damage;
@@ -41,6 +44,11 @@ public class Weapon : MonoBehaviour
         _currentAmmo = _magazineSize;
     }
 
+    private void OnDisable()
+    {
+        _isReloading = false;
+    }
+
     public void Shoot()
     {
         if (_currentAmmo <= 0 || _isReloading || Time.time < _fireTime) return;
@@ -50,6 +58,8 @@ public class Weapon : MonoBehaviour
         ShootingLogic();
 
         _currentAmmo--;
+
+        Debug.Log(_currentAmmo);
     }
 
     public void Reload()
@@ -77,7 +87,7 @@ public class Weapon : MonoBehaviour
     private void ShootingLogic()
     {
         float spreadX = Random.Range(-_spread, _spread);
-        float spreadY = Random.Range(-_spread, _spread);
+        float spreadY = Random.Range(-_spread / _verticalSpreadCoeficent, _spread / _verticalSpreadCoeficent);
 
         Vector3 direction = firePoint.forward + firePoint.right * spreadX + firePoint.up * spreadY;
 
@@ -134,6 +144,12 @@ public class Weapon : MonoBehaviour
         if (hit.collider != null)
         {
             GameObject impactBulletHole = Instantiate(bulletHole, hit.point - new Vector3(0, 0, 0.01f), Quaternion.LookRotation(hit.normal));
+
+            ParticleSystem impactParticles = Instantiate(impactParticle, hit.point - new Vector3(0, 0, 0.01f), Quaternion.LookRotation(hit.normal));
+
+            impactParticles.Play();
+
+            Destroy(impactParticles.gameObject, 3f);
 
             Destroy(impactBulletHole.gameObject, 10f);
         }

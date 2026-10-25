@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DummyTarget
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Dummy
-  hp: 20
+  hp: 100
   movementSpeed: 0
   attackDamage: 0
