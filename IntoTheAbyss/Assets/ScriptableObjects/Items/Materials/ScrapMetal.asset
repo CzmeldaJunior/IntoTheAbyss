@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda83998fb1f2024aa26ad51f444a049, type: 3}
+  m_Name: ScrapMetal
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemId: 2
+  itemName: Scrap_Metal
+  description: Rusted metal
+  icon: {fileID: -5157718888085458970, guid: 0bc3e9aea19cb304294b232f95e94a92, type: 3}
+  prefab: {fileID: 2762530499272782854, guid: b002958152ec0764dbbe156ccee2bd37, type: 3}
+  stackSize: 30
+  itemType: 2
+  canSpawnMultiple: 1

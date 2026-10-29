@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921b01c8346a2bd4ab375292cbca1713, type: 3}
   m_Name: TestRifle
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  weaponName: Test_Rifle
+  itemId: 
+  itemName: 
+  description: 
+  icon: {fileID: 0}
+  prefab: {fileID: 0}
+  stackSize: 1
+  itemType: 1
+  canSpawnMultiple: 0
   damage: 20
   reloadTime: 3
   fireRate: 0.1

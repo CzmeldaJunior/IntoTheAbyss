@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        _weaponName = _weaponData.weaponName;
+        _weaponName = _weaponData.itemName;
         _damage = _weaponData.damage;
         _reloadTime = _weaponData.reloadTime;
         _fireRate = _weaponData.fireRate;

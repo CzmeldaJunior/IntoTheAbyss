@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f4e05b217bb5d4c8d3038ff6d75aae, type: 3}
+  m_Name: LightAmmo
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoData
+  itemId: 10
+  itemName: Light_Ammo
+  description: small caliber
+  icon: {fileID: -3460486773749606568, guid: 75d3269acb07bf7438b226d4b6eab384, type: 3}
+  prefab: {fileID: 4405318639661441881, guid: ed2f2b9664544964c912c2de3e5582ca, type: 3}
+  stackSize: 50
+  itemType: 3
+  canSpawnMultiple: 1
+  ammoType: 0

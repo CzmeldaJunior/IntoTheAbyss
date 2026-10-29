@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     private CharacterController _characterController;
-
-    [SerializeField]
     private Camera _mainCamera;
+    [SerializeField]
+    private InteractionManager _interactionManager;
 
     private bool _isGamepad = false;
 
@@ -38,6 +38,14 @@ public class PlayerInput : MonoBehaviour
         else if (context.control.device is Keyboard)
         {
             _isGamepad = false;
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            _interactionManager.TryInteract();
         }
     }
 

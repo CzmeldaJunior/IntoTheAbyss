@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda83998fb1f2024aa26ad51f444a049, type: 3}
+  m_Name: Chemicals
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemId: 1
+  itemName: Chemicals
+  description: Some chemicals
+  icon: {fileID: -7984470120255965844, guid: 3c7c79e288fc70d4083ace21bbce3346, type: 3}
+  prefab: {fileID: 3116501637110520767, guid: 0bb214dfc6cd05b4981b4e247a75c0fa, type: 3}
+  stackSize: 20
+  itemType: 2
+  canSpawnMultiple: 1
