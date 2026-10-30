@@ -1,23 +1,26 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 [System.Serializable]
 public class InventoryItem
 {
     public ItemData itemData;
-
-    public GameObject obj;
     public int amount;
+
+    //[NonSerialized]
+    public int currentAmmo;
 
     public InventoryItem(ItemData data, int amount)
     {
         itemData = data;
         this.amount = amount;
     }
-
-    public InventoryItem(GameObject obj, int amount)
+    public InventoryItem(ItemData data, int amount, int currentAmmo /*attachmenty*/)
     {
-        this.obj = obj;
+        itemData = data;
         this.amount = amount;
+        this.currentAmmo = currentAmmo;
     }
 }

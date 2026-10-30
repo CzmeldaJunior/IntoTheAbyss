@@ -18,15 +18,12 @@ public class InteractionManager : MonoBehaviour
 
         if (_target.itemData.itemType == ItemType.Weapon)
         {
-            _inventoryManager.AddToInventory(_target.gameObject, _target.amount);
-            Debug.Log("Sebrani zbrane");
+            _inventoryManager.AddToInventory(_target.itemData, 1, _target.GetComponent<Weapon>().GetCurrentAmmo());
         }
         else
         {
             _inventoryManager.AddToInventory(_target.itemData, _target.amount);
         }
-        
-
         Destroy(_target.gameObject);
     }
 

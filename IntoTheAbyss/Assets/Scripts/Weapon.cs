@@ -23,8 +23,11 @@ public class Weapon : MonoBehaviour
     private float _range;
     private float _spread;
 
-
     int _currentAmmo;
+    public int GetCurrentAmmo()
+    {
+        return _currentAmmo;
+    }
     bool _isReloading;
     float _fireTime;
 
