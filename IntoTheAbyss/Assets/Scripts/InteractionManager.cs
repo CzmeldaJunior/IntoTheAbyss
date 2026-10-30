@@ -18,7 +18,7 @@ public class InteractionManager : MonoBehaviour
 
         if (_target.itemData.itemType == ItemType.Weapon)
         {
-            //Implementovat stav sebrani pro zbran
+            _inventoryManager.AddToInventory(_target.gameObject, _target.amount);
             Debug.Log("Sebrani zbrane");
         }
         else

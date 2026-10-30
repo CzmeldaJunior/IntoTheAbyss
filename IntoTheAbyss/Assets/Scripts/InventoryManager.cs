@@ -34,4 +34,9 @@ public class InventoryManager : MonoBehaviour
         
 
     }
+
+    public void AddToInventory(GameObject item, int amount)
+    {
+        inventory.Add(new InventoryItem(item, amount));
+    }
 }

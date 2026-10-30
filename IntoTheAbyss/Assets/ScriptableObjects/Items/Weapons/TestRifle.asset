@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: 
   description: 
   icon: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 6461497790381830641, guid: 30b9096ebea47bb4da18792a992da658, type: 3}
   stackSize: 1
   itemType: 1
   canSpawnMultiple: 0

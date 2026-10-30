@@ -16,11 +16,11 @@ MonoBehaviour:
   itemName: 
   description: 
   icon: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 860310065568237838, guid: 0345db8fa5d55704f9c466826bad4aa1, type: 3}
   stackSize: 1
   itemType: 1
   canSpawnMultiple: 0
-  damage: 8
+  damage: 10
   reloadTime: 2
   fireRate: 0.3
   magazineSize: 12
