@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8287996721287975008}
   - component: {fileID: 693448974188531429}
   - component: {fileID: 1008368737333824133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TestRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

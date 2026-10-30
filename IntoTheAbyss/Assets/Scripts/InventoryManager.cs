@@ -31,7 +31,9 @@ public class InventoryManager : MonoBehaviour
         {
             inventory.Add(new InventoryItem(itemData, amount));
         }
-        
-
+    }
+    public void AddToInventory(ItemData itemData, int amount, int currentAmmo)
+    {
+        inventory.Add(new InventoryItem(itemData, 1, currentAmmo));
     }
 }
