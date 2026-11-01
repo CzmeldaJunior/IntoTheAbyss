@@ -28,6 +28,7 @@ public class Weapon : MonoBehaviour
 
     private AmmoType _ammoType;
 
+    [SerializeField]
     int _currentAmmo;
     public int GetCurrentAmmo()
     {
@@ -83,22 +84,22 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator ReloadRoutine()
     {
-        //Bude volat ammoManager
+        if (_isReloading || _currentAmmo >= _magazineSize)
+            yield break;
 
         _isReloading = true;
 
         yield return new WaitForSeconds(_reloadTime);
 
         int neededAmmo = _magazineSize - _currentAmmo;
-        
 
-        // ------- //
+        int ammoRemoved = _ammoManager.RemoveAmmo(_ammoType, neededAmmo);
 
-        _ammoManager.RemoveAmmo(_ammoType, neededAmmo);
-
-        _currentAmmo = _magazineSize;
+        _currentAmmo += ammoRemoved;
 
         _isReloading = false;
+
+
     }
 
     private void ShootingLogic()

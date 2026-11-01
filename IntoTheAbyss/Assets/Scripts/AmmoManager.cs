@@ -72,5 +72,7 @@ public class AmmoManager : MonoBehaviour
         _inventoryManager.inventory.RemoveAll(item => item.amount <= 0);
 
         return count - remainingAmmoToRemove;
+
+        //pridat event pointer na inventory manager aby se spravne ukazovali Light/Medium/Heavy counts
     }
 }
