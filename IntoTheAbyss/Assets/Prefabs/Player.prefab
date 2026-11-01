@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 1117583712812198759}
   - component: {fileID: 8332731928564909925}
   - component: {fileID: 2192700865772896083}
+  - component: {fileID: 5523289756635737094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -487,6 +488,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   inventory: []
+--- !u!114 &5523289756635737094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857579407730572089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adece9a63ab6a0541a3dcdb541a24900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoManager
+  _inventoryManager: {fileID: 2192700865772896083}
+  lightAmmoCount: 0
+  mediumAmmoCount: 0
+  HeavyAmmoCount: 0
 --- !u!1 &6957154322823394985
 GameObject:
   m_ObjectHideFlags: 0

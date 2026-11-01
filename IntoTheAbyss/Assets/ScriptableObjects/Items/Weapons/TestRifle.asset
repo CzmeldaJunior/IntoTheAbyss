@@ -20,6 +20,7 @@ MonoBehaviour:
   stackSize: 1
   itemType: 1
   canSpawnMultiple: 0
+  ammoType: 1
   damage: 20
   reloadTime: 3
   fireRate: 0.1

@@ -1,11 +1,14 @@
 using System.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField]
     private WeaponData _weaponData;
+    [SerializeField]
+    private AmmoManager _ammoManager;
     public Transform firePoint;
     public GameObject bulletHole;
     public TrailRenderer bulletTrail;
@@ -22,6 +25,8 @@ public class Weapon : MonoBehaviour
     private int _magazineSize;
     private float _range;
     private float _spread;
+
+    private AmmoType _ammoType;
 
     int _currentAmmo;
     public int GetCurrentAmmo()
@@ -42,6 +47,8 @@ public class Weapon : MonoBehaviour
         _magazineSize = _weaponData.magazineSize;
         _range = _weaponData.range;
         _spread = _weaponData.spread;
+        _ammoType = _weaponData.ammoType;
+        
 
 
         _currentAmmo = _magazineSize;
@@ -61,8 +68,6 @@ public class Weapon : MonoBehaviour
         ShootingLogic();
 
         _currentAmmo--;
-
-        Debug.Log(_currentAmmo);
     }
 
     public void Reload()

@@ -12,11 +12,13 @@ public class InventoryItem
     //[NonSerialized]
     public int currentAmmo;
 
+    //Basic loot
     public InventoryItem(ItemData data, int amount)
     {
         itemData = data;
         this.amount = amount;
     }
+    //Weapons
     public InventoryItem(ItemData data, int amount, int currentAmmo /*attachmenty*/)
     {
         itemData = data;
