@@ -50,8 +50,12 @@ public class Weapon : MonoBehaviour
         _ammoType = _weaponData.ammoType;
         
 
-
         _currentAmmo = _magazineSize;
+    }
+
+    private void OnEnable()
+    {
+        _ammoManager = GetComponentInParent<AmmoManager>();
     }
 
     private void OnDisable()
@@ -84,8 +88,13 @@ public class Weapon : MonoBehaviour
         _isReloading = true;
 
         yield return new WaitForSeconds(_reloadTime);
+
+        int neededAmmo = _magazineSize - _currentAmmo;
         
-        Debug.Log("Reloaded");
+
+        // ------- //
+
+        _ammoManager.RemoveAmmo(_ammoType, neededAmmo);
 
         _currentAmmo = _magazineSize;
 

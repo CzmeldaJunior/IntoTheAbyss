@@ -1,3 +1,5 @@
+using System.Linq;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class AmmoManager : MonoBehaviour
@@ -47,5 +49,28 @@ public class AmmoManager : MonoBehaviour
             }
 
         }
+    }
+
+    public int RemoveAmmo(AmmoType ammoType, int count)
+    {
+        int remainingAmmoToRemove = count;
+
+        foreach (var slot in _inventoryManager.inventory.OrderBy(item => item.amount))
+        {
+            if (slot.itemData is AmmoData ammoData && ammoData.ammoType == ammoType)
+            {
+                int amountToRemoveFromSlot = Mathf.Min(slot.amount, remainingAmmoToRemove);
+
+                slot.amount -= amountToRemoveFromSlot;
+                remainingAmmoToRemove -= amountToRemoveFromSlot;
+
+                if (remainingAmmoToRemove <= 0)
+                    break;
+            }
+        }
+
+        _inventoryManager.inventory.RemoveAll(item => item.amount <= 0);
+
+        return count - remainingAmmoToRemove;
     }
 }
