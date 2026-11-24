@@ -1,5 +1,4 @@
 using System.Linq;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class AmmoManager : MonoBehaviour
@@ -71,8 +70,10 @@ public class AmmoManager : MonoBehaviour
 
         _inventoryManager.inventory.RemoveAll(item => item.amount <= 0);
 
+        CheckInventoryForAmmo();
+
         return count - remainingAmmoToRemove;
 
-        //pridat event pointer na inventory manager aby se spravne ukazovali Light/Medium/Heavy counts
+        
     }
 }

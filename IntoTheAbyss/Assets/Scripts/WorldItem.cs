@@ -12,11 +12,6 @@ public class WorldItem : MonoBehaviour, IInteractable
         return "jsem WorldItem";
     }
 
-    public virtual void Interact(InteractionManager interactor)
-    {
-        //nebude implementovano
-    }
-
     private void Awake()
     {
         if (itemData.canSpawnMultiple)

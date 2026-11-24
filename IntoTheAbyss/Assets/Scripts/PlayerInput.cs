@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     private CharacterController _characterController;
+    private UnityEngine.InputSystem.PlayerInput _inputSystemPlayerInput;
+    [SerializeField]
+    private InventoryUI _inventoryUI;
     private Camera _mainCamera;
     [SerializeField]
     private InteractionManager _interactionManager;
@@ -16,10 +19,15 @@ public class PlayerInput : MonoBehaviour
     private Vector2 _moveInput;
     private Vector2 _lookInput;
 
+    /*---InventoryInput---*/
+
+    private bool menuOpened;
+
 
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        _inputSystemPlayerInput = GetComponent<UnityEngine.InputSystem.PlayerInput>();
         _mainCamera = Camera.main;
     }
     public void OnMove(InputAction.CallbackContext context)
@@ -43,10 +51,31 @@ public class PlayerInput : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
             _interactionManager.TryInteract();
         }
+    }
+
+    public void OnToggleInventory(InputAction.CallbackContext context)
+    {
+        
+        if(context.performed && menuOpened)
+        {
+            _inventoryUI.ToggleInventory(false);
+            menuOpened = false;
+            _inputSystemPlayerInput.SwitchCurrentActionMap("Gameplay");
+        }
+        else if (context.performed && !menuOpened)
+        {
+            _inventoryUI.ToggleInventory(true);
+            menuOpened = true;
+            _inputSystemPlayerInput.SwitchCurrentActionMap("UI");
+        }
+
+        Debug.Log("toggle" + menuOpened);
+
+        
     }
 
     private void Update()

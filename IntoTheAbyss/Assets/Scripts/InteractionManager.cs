@@ -1,4 +1,3 @@
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
@@ -15,17 +14,30 @@ public class InteractionManager : MonoBehaviour
 
     public void TryInteract()
     {
+        int amountLeft;
+
         if (_target == null) return;
 
         if (_target.itemData.itemType == ItemType.Weapon)
         {
-            _inventoryManager.AddToInventory(_target.itemData, 1, _target.GetComponent<Weapon>().GetCurrentAmmo());
+            amountLeft = _inventoryManager.AddToInventory(_target.itemData, 1, _target.GetComponent<Weapon>().GetCurrentAmmo());
         }
         else
         {
-            _inventoryManager.AddToInventory(_target.itemData, _target.amount);
+            amountLeft = _inventoryManager.AddToInventory(_target.itemData, _target.amount);
         }
-        Destroy(_target.gameObject);
+
+        if (amountLeft <= 0)
+        {
+            Destroy(_target.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("Inv full");
+            _target.amount = amountLeft;
+        }
+
+        
     }
 
     private void FindInteractable()
@@ -53,11 +65,6 @@ public class InteractionManager : MonoBehaviour
         }
 
         _target = closestItem;
-
-        if (closestItem != null)
-        {
-            Debug.Log(closestItem.gameObject);
-        }
     }
 
     private void Update()
