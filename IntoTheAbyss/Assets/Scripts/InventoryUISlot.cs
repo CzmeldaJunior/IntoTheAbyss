@@ -7,6 +7,12 @@ using UnityEngine.UI;
 
 public class InventoryUISlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler, ISelectHandler
 {
+
+    /// <summary>
+    /// TODO:
+    /// NASTAVIT ABY SI HRACI NEMOHLI HRABAT V INVENTARI NAVZAJEM
+    /// </summary>
+
     public string itemName;
     public int quantity;
     public Sprite icon;
@@ -107,8 +113,6 @@ public class InventoryUISlot : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         visualRoot.SetParent(this.transform);
 
         visualRoot.localPosition = Vector3.zero;
-
-        //Aby bylo navrchu
         visualRoot.SetAsFirstSibling();
 
         canvasGroup.blocksRaycasts = true;
