@@ -4,6 +4,7 @@ using UnityEngine;
 public enum ItemType
 {
     Consumable,
+    Trowable,
     Weapon,
     Material,
     Ammo,

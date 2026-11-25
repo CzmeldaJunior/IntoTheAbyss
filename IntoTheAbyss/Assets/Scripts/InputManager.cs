@@ -8,12 +8,14 @@ using UnityEngine.UI;
 public class InputManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _playerPrefab;
+    private GameObject _playerPrefab1;
+    [SerializeField]
+    private GameObject _playerPrefab2;
     [SerializeField]
     private Transform[] _spawnPoints;
 
     private bool _wasdConn = false;
-    private bool _arrowsConn = false;
+    //private bool _arrowsConn = false;
 
     private List<Gamepad> _joinedGamepads = new List<Gamepad>();
 
@@ -25,7 +27,7 @@ public class InputManager : MonoBehaviour
 
         if(!_wasdConn && connectedPlayers < 2 && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            var player = UnityEngine.InputSystem.PlayerInput.Instantiate(_playerPrefab, controlScheme: "WASD", pairWithDevice: Keyboard.current);
+            var player = UnityEngine.InputSystem.PlayerInput.Instantiate(_playerPrefab1, controlScheme: "WASD", pairWithDevice: Keyboard.current);
 
             if(_spawnPoints.Length > 0)
             {
@@ -37,26 +39,26 @@ public class InputManager : MonoBehaviour
 
         }
 
-        if (!_arrowsConn && connectedPlayers < 2 && Keyboard.current.rightShiftKey.wasPressedThisFrame)
-        {
-            var player = UnityEngine.InputSystem.PlayerInput.Instantiate(_playerPrefab, controlScheme: "Arrows", pairWithDevice: Keyboard.current);
+        //if (!_arrowsConn && connectedPlayers < 2 && Keyboard.current.rightShiftKey.wasPressedThisFrame)
+        //{
+        //    var player = UnityEngine.InputSystem.PlayerInput.Instantiate(_playerPrefab, controlScheme: "Arrows", pairWithDevice: Keyboard.current);
 
-            if (_spawnPoints.Length > 1)
-            {
-                player.transform.position = _spawnPoints[1].position;
-            }
+        //    if (_spawnPoints.Length > 1)
+        //    {
+        //        player.transform.position = _spawnPoints[1].position;
+        //    }
 
-            _arrowsConn = true;
-            connectedPlayers++;
+        //    _arrowsConn = true;
+        //    connectedPlayers++;
 
-        }
+        //}
 
 
         foreach (var gamepad in Gamepad.all)
         {
             if (!_joinedGamepads.Contains(gamepad) && connectedPlayers < 2 && gamepad.buttonSouth.wasPressedThisFrame)
             {
-                UnityEngine.InputSystem.PlayerInput.Instantiate(_playerPrefab, controlScheme: "Gamepad",pairWithDevice: gamepad);
+                UnityEngine.InputSystem.PlayerInput.Instantiate(_playerPrefab2, controlScheme: "Gamepad",pairWithDevice: gamepad);
 
                 _joinedGamepads.Add(gamepad);
                 connectedPlayers++;

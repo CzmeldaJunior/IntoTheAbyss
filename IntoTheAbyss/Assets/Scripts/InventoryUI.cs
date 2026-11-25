@@ -8,6 +8,12 @@ public class InventoryUI : MonoBehaviour
     private GameObject _inventoryMenu;
 
     [SerializeField]
+    private GameObject _UIslot;
+
+    [SerializeField]
+    private GameObject _UISlotContainer;
+
+    [SerializeField]
     private InventoryManager _inventoryManager;
 
     [SerializeField]
@@ -15,6 +21,8 @@ public class InventoryUI : MonoBehaviour
 
     private void Awake()
     {
+        InitializateSlots();
+
         _inventoryUIslots.Clear();
 
         var slots = GetComponentsInChildren<InventoryUISlot>();
@@ -35,6 +43,14 @@ public class InventoryUI : MonoBehaviour
     private void OnDisable()
     {
         _inventoryManager.OnInventoryChange -= UpdateUI;
+    }
+
+    private void InitializateSlots()
+    {
+        for (int i = 0; i < _inventoryManager.inventorySize; i++)
+        {
+            Instantiate(_UIslot, _UISlotContainer.transform);
+        }
     }
 
     private void UpdateUI()

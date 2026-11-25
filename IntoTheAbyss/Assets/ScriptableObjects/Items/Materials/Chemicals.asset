@@ -18,5 +18,5 @@ MonoBehaviour:
   icon: {fileID: -7984470120255965844, guid: 3c7c79e288fc70d4083ace21bbce3346, type: 3}
   prefab: {fileID: 3116501637110520767, guid: 0bb214dfc6cd05b4981b4e247a75c0fa, type: 3}
   stackSize: 20
-  itemType: 2
+  itemType: 3
   canSpawnMultiple: 1

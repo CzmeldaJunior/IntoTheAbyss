@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : MonoBehaviour, IDamageable
 {
     private CharacterController _characterController;
     private UnityEngine.InputSystem.PlayerInput _inputSystemPlayerInput;
@@ -10,6 +10,8 @@ public class PlayerInput : MonoBehaviour
     private Camera _mainCamera;
     [SerializeField]
     private InteractionManager _interactionManager;
+
+    public float hp = 100f;
 
     private bool _isGamepad = false;
 
@@ -118,8 +120,16 @@ public class PlayerInput : MonoBehaviour
             
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection), 0.10f);
         }
+    }
 
-        
+    public void TakeDamage(float damageToTake)
+    {
+        hp -= damageToTake;
 
+        if (hp <= 0)
+        {
+            Destroy(this.gameObject);
+            Debug.Log("HracZemrel");
+        }
     }
 }

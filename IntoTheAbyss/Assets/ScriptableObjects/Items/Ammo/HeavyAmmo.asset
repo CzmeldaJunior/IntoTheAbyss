@@ -18,6 +18,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   prefab: {fileID: 0}
   stackSize: 20
-  itemType: 3
+  itemType: 4
   canSpawnMultiple: 1
   ammoType: 2

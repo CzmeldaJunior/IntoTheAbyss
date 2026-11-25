@@ -17,6 +17,6 @@ MonoBehaviour:
   description: 
   icon: {fileID: 0}
   prefab: {fileID: 0}
-  stackSize: 1
-  itemType: 0
-  canSpawnMultiple: 0
+  stackSize: 10
+  itemType: 3
+  canSpawnMultiple: 1

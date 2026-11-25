@@ -65,6 +65,11 @@ public class InteractionManager : MonoBehaviour
         }
 
         _target = closestItem;
+
+        if (closestItem != null)
+        {
+            Debug.Log(closestItem.gameObject, closestItem.itemData);
+        }
     }
 
     private void Update()

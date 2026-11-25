@@ -27,7 +27,15 @@ public class InventoryUISlot : MonoBehaviour
 
         itemIcon.sprite = icon;
 
-        quantityText.text = quantity.ToString();
+        if (quantity == 1)
+        {
+            quantityText.text = string.Empty;
+        }
+        else
+        {
+            quantityText.text = quantity.ToString();
+        }
+        quantityText.enabled = true;
     }
 
     public void ClearSlot()
@@ -45,6 +53,7 @@ public class InventoryUISlot : MonoBehaviour
         if (quantityText != null)
         {
             quantityText.text = string.Empty;
+            quantityText.enabled = false;
         }
     }
 
