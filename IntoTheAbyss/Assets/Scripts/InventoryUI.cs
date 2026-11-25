@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _inventoryMenu;
+    private GameObject _Backpack;
 
     [SerializeField]
-    private GameObject _UIslot;
+    private InventoryUISlot _UIslot;
 
     [SerializeField]
     private GameObject _UISlotContainer;
@@ -23,14 +24,6 @@ public class InventoryUI : MonoBehaviour
     {
         InitializateSlots();
 
-        _inventoryUIslots.Clear();
-
-        var slots = GetComponentsInChildren<InventoryUISlot>();
-
-        foreach(var slot in slots)
-        {
-            _inventoryUIslots.Add(slot);
-        }
     }
 
     private void OnEnable()
@@ -47,22 +40,34 @@ public class InventoryUI : MonoBehaviour
 
     private void InitializateSlots()
     {
+        _inventoryUIslots.Clear();
+
         for (int i = 0; i < _inventoryManager.inventorySize; i++)
         {
-            Instantiate(_UIslot, _UISlotContainer.transform);
+            InventoryUISlot createdSlot = Instantiate(_UIslot, _UISlotContainer.transform);
+            createdSlot.slotIndex = i;
+            _inventoryUIslots.Add(createdSlot);
         }
     }
 
     private void UpdateUI()
     {
-        for (int i = 0; i < _inventoryManager.inventory.Count; i++)
+        for (int i = 0; i < _inventoryUIslots.Count; i++)
         {
-            _inventoryUIslots[i].SetSlot(_inventoryManager.inventory[i]);
+            if (i < _inventoryManager.inventory.Count)
+            {
+                _inventoryUIslots[i].SetSlot(_inventoryManager.inventory[i]);
+            }
+            else
+            {
+                _inventoryUIslots[i].ClearSlot();
+            }
+            
         }
     }
 
     public void ToggleInventory(bool isOpened)
     {
-        _inventoryMenu.SetActive(isOpened);
+        _Backpack.SetActive(isOpened);
     }
 }

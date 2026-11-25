@@ -10,6 +10,11 @@ public class InventoryManager : MonoBehaviour
 
     public event Action OnInventoryChange;
 
+    public void NotifyInventoryChanged()
+    {
+        OnInventoryChange?.Invoke();
+    }
+
     public int AddToInventory(ItemData itemData, int amount)
     {
         InventoryItem existingItem = inventory.Find(item => item.itemData == itemData && item.amount < itemData.stackSize);
@@ -82,5 +87,14 @@ public class InventoryManager : MonoBehaviour
 
         OnInventoryChange?.Invoke();
         return amount;
+    }
+
+    public void SwapItems(int fromIndex, int toIndex)
+    {
+        InventoryItem temp = inventory[fromIndex];
+        inventory[fromIndex] = inventory[toIndex];
+        inventory[toIndex] = temp;
+
+        OnInventoryChange?.Invoke();
     }
 }

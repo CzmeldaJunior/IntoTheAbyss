@@ -72,8 +72,12 @@ public class AmmoManager : MonoBehaviour
 
         CheckInventoryForAmmo();
 
+        _inventoryManager.NotifyInventoryChanged();
+
         return count - remainingAmmoToRemove;
 
         
+
+
     }
 }
