@@ -15,7 +15,7 @@ public class WorldItem : MonoBehaviour, IInteractable
     private void Awake()
     {
         if (itemData.canSpawnMultiple)
-            amount = Random.Range(1, 30);
+            amount = Random.Range(1, 20);
         else
             amount = 1;
     }

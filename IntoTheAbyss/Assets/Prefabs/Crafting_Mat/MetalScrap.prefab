@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3116501637110520767
+--- !u!1 &6078228808127426842
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8112341455224002413}
-  - component: {fileID: 2624352731181358454}
-  - component: {fileID: 4988375176474891582}
-  - component: {fileID: 6353953960706047656}
-  - component: {fileID: 4357476804921146321}
+  - component: {fileID: 3899314772332449458}
+  - component: {fileID: 4987709386063768863}
+  - component: {fileID: 7513536896862505179}
+  - component: {fileID: 3039974169953105578}
+  - component: {fileID: 7882319769910426742}
   m_Layer: 6
-  m_Name: Chemical
+  m_Name: MetalScrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8112341455224002413
+--- !u!4 &3899314772332449458
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116501637110520767}
+  m_GameObject: {fileID: 6078228808127426842}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.79116, y: 0.426, z: -0.97295}
-  m_LocalScale: {x: 0.57, y: 0.4, z: 0.57}
+  m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -33.28, y: 0.01, z: -9.46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2624352731181358454
+--- !u!33 &4987709386063768863
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116501637110520767}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4988375176474891582
+  m_GameObject: {fileID: 6078228808127426842}
+  m_Mesh: {fileID: -275321899259845748, guid: 468f5083338e3884289a568bee8f44b4, type: 3}
+--- !u!23 &7513536896862505179
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116501637110520767}
+  m_GameObject: {fileID: 6078228808127426842}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41e45706024ed1240adc7749f023275e, type: 2}
+  - {fileID: 2003251204406971478, guid: 468f5083338e3884289a568bee8f44b4, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,13 +92,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6353953960706047656
-CapsuleCollider:
+--- !u!114 &3039974169953105578
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116501637110520767}
+  m_GameObject: {fileID: 6078228808127426842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38666af7e77113428ef193fd714330d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
+  itemData: {fileID: 11400000, guid: b9397043743a56a4fa6f9b5ebcba3c68, type: 2}
+  amount: 0
+--- !u!65 &7882319769910426742
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078228808127426842}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -110,22 +124,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &4357476804921146321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3116501637110520767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c38666af7e77113428ef193fd714330d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
-  itemData: {fileID: 11400000, guid: 9b308522c706a88488f39117e2ae778e, type: 2}
-  amount: 0
+  serializedVersion: 3
+  m_Size: {x: 1.1551551, y: 0.3343832, z: 0.9909413}
+  m_Center: {x: -0.045814693, y: 0.15371785, z: -0.024053693}

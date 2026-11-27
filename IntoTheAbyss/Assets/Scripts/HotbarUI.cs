@@ -4,9 +4,9 @@ using UnityEngine;
 public class HotbarUI : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _consumableSlot;
+    private HotbarUISlot _consumableSlot;
     [SerializeField]
-    private GameObject _trowableSlot;
+    private HotbarUISlot _trowableSlot;
 
     [SerializeField]
     private InventoryManager _inventoryManager;
@@ -18,10 +18,12 @@ public class HotbarUI : MonoBehaviour
     private void OnEnable()
     {
         _inventoryManager.OnInventoryChange += FillLists;
+        _inventoryManager.OnInventoryChange += UpdateUI;
     }
     private void OnDisable()
     {
         _inventoryManager.OnInventoryChange -= FillLists;
+        _inventoryManager.OnInventoryChange -= UpdateUI;
     }
 
     private void FillLists()
@@ -44,8 +46,10 @@ public class HotbarUI : MonoBehaviour
         }
     }
 
-    private void SetSlots()
+    public void UpdateUI()
     {
+        _consumableSlot.SetSlot(_consumables[1]);
 
+        _trowableSlot.SetSlot(_trowable[1]);
     }
 }

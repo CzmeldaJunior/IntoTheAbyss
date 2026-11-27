@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2762530499272782854
+--- !u!1 &3095941144846666865
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7601976434510770577}
-  - component: {fileID: 6661548279663651665}
-  - component: {fileID: 4266841792037100494}
-  - component: {fileID: 505841921092801246}
-  - component: {fileID: 8671371761858263464}
+  - component: {fileID: 7988406232391713226}
+  - component: {fileID: 5053859887028834299}
+  - component: {fileID: 7209227969773746238}
+  - component: {fileID: 2488652396603062102}
+  - component: {fileID: 5939357434082982181}
   m_Layer: 6
-  m_Name: Scrap
+  m_Name: Cloth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7601976434510770577
+--- !u!4 &7988406232391713226
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762530499272782854}
+  m_GameObject: {fileID: 3095941144846666865}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.803, y: 0.163, z: -0.973}
-  m_LocalScale: {x: 1, y: 0.12, z: 1}
+  m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -34.963573, y: 0.041636627, z: -9.340585}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6661548279663651665
+--- !u!33 &5053859887028834299
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762530499272782854}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4266841792037100494
+  m_GameObject: {fileID: 3095941144846666865}
+  m_Mesh: {fileID: -8147015148230436551, guid: 9f3c12886b0b28d4885c9508e185f16f, type: 3}
+--- !u!23 &7209227969773746238
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762530499272782854}
+  m_GameObject: {fileID: 3095941144846666865}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0c61e01021090344488886f9e7fc2f13, type: 2}
+  - {fileID: 2003251204406971478, guid: 9f3c12886b0b28d4885c9508e185f16f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,13 +92,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &505841921092801246
+--- !u!114 &2488652396603062102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095941144846666865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38666af7e77113428ef193fd714330d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
+  itemData: {fileID: 11400000, guid: f5a3d65caa836194bbce9b72d121e62e, type: 2}
+  amount: 0
+--- !u!65 &5939357434082982181
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762530499272782854}
+  m_GameObject: {fileID: 3095941144846666865}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -111,19 +125,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8671371761858263464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762530499272782854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c38666af7e77113428ef193fd714330d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
-  itemData: {fileID: 11400000, guid: b9397043743a56a4fa6f9b5ebcba3c68, type: 2}
-  amount: 0
+  m_Size: {x: 0.8195826, y: 0.93175805, z: 0.8000006}
+  m_Center: {x: -0.000000014901161, y: 0.42424244, z: 0.000000059604645}

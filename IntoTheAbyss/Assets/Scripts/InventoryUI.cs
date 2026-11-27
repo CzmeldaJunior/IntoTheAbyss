@@ -23,7 +23,6 @@ public class InventoryUI : MonoBehaviour
     private void Awake()
     {
         InitializateSlots();
-
     }
 
     private void OnEnable()
